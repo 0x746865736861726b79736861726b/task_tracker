@@ -8,7 +8,7 @@ from app.tracker.user.domain.repositories.user_unit_of_work import UserUnitOfWor
 from app.core.use_cases.use_case import BaseUseCase
 
 
-class DeleteUserUseCase(BaseUseCase[Tuple[int], UserReadModel]):
+class DeleteUserUseCase(BaseUseCase):
     unit_of_work: UserUnitOfWork
 
     @abstractmethod

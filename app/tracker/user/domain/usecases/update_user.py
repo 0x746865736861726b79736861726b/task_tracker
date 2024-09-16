@@ -9,7 +9,7 @@ from app.tracker.user.domain.entities.user_model import UserUpdateModel
 from app.tracker.user.domain.repositories.user_unit_of_work import UserUnitOfWork
 
 
-class UpdateUserUseCase(BaseUseCase[Tuple[int, UserUpdateModel], UserReadModel]):
+class UpdateUserUseCase(BaseUseCase):
     unit_of_work: UserUnitOfWork
 
     @abstractmethod
