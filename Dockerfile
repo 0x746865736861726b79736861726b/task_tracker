@@ -1,7 +1,12 @@
-FROM python:3-alpine as build
+FROM python:3.12.6-bookworm as build
 
-RUN apk --update add postgresql-dev python3-dev musl-dev libffi-dev make && \
-    apk --update add --no-cache --virtual .build-deps gcc g++
+RUN apt-get update && apt-get install -y \
+    postgresql \
+    python3-dev \
+    libffi-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
 
 RUN pip install --upgrade pip --no-cache-dir
 
@@ -14,6 +19,5 @@ COPY ./Makefile /opt/project/
 
 RUN pip install --upgrade --no-cache-dir -r /tmp/requirements.txt
 
-RUN apk --purge del .build-deps
 
 CMD ["/entrypoint.sh"]
