@@ -10,7 +10,11 @@ from app.dependecies import get_settings
 
 __SETTINGS: Settings = get_settings()
 
-__SQLALCHEMY_DATABASE_URL = "".format(**dict(__SETTINGS))
+__SQLALCHEMY_DATABASE_URL = (
+    "postgresql://{db_user}:{db_password}@{db_host}/{db_name}".format(
+        **dict(__SETTINGS)
+    )
+)
 
 
 engine = create_engine(
