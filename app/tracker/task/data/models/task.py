@@ -1,9 +1,11 @@
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Column, Boolean, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship, Mapped
+from sqlalchemy import Column, Boolean, ForeignKey, Integer, String
 
 from app.core.models.models import Base
+from app.tracker.task.domain.entities.task_entity import TaskEntity
+from app.tracker.task.domain.entities.task_query_model import TaskReadModel
 
 if TYPE_CHECKING:
     from app.tracker.user.data.models.user import User
