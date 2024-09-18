@@ -23,8 +23,8 @@ class UpdateTaskUseCaseImpl(UpdateTaskUseCase):
         self.unit_of_work = unit_of_work
 
     def __call__(self, args: Tuple[int, TaskUpdateModel]) -> TaskReadModel:
-        id_, update_data = args
-        existing_task = self.unit_of_work.repository.find_by_id(id_)
+        id, update_data = args
+        existing_task = self.unit_of_work.repository.find_by_id(id)
 
         if existing_task is None:
             raise TaskNotFoundError()

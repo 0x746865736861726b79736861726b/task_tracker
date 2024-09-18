@@ -22,9 +22,9 @@ class GetTaskUseCaseImpl(GetTaskUseCase):
         self.service: TaskQueryService = service
 
     def __call__(self, args: Tuple[int]) -> TaskReadModel:
-        (id_,) = args
+        (id,) = args
         try:
-            task = self.service.find_by_id(id_)
+            task = self.service.find_by_id(id)
             if task is None:
                 raise TaskNotFoundError()
         except Exception:
